@@ -1,20 +1,15 @@
 package dev.syntax.oop.step03practice.commuting;
 
-public class Bus {
-	
-	int lineNumber;
-	int fare;
-	int numOfPassenger = 0;
-	int salesAmount = 0;
+public class Bus extends Transportation {
+
 	
 	public Bus(int number, int fare) {
-		lineNumber = number;
-		this.fare = fare;
+		super(number, fare);
 	}
 
 	@Override
 	public String toString() {
-		return "Bus [lineNumber=" + lineNumber + ", numOfPassenger=" + numOfPassenger + ", salesAmount=" + salesAmount
+		return "Bus [lineNumber=" + getLineNumber() + ", numOfPassenger=" + getNumOfPassenger() + ", salesAmount=" + getSalesAmount()
 				+ "]";
 	}
 }

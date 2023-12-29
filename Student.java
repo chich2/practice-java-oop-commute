@@ -2,13 +2,18 @@ package dev.syntax.oop.step03practice.commuting;
 
 public class Student {
 	
-	String name;
-	int money;
+	private String name;
+	private int money;
 	
 	public Student(String name, int money) {
 		this.name = name;
 		this.money = money;
 	}
+
+	public void setMoney(int money) {
+		this.money = money;
+	}
+
 
 	@Override
 	public String toString() {
@@ -16,22 +21,10 @@ public class Student {
 	}
 
 	public void takeBus(Bus bus) {
-		if(this.money >= bus.fare) {
-			this.money -= bus.fare;
-			bus.numOfPassenger += 1;
-			bus.salesAmount += bus.fare;
-		}else {
-			System.out.println("You need more money");
-		}
+		setMoney(bus.confirm(money));
 	}
 
 	public void takeSubway(Subway subway) {
-		if(this.money >= subway.fare) {
-			this.money -= subway.fare;
-			subway.numOfPassenger += 1;
-			subway.salesAmount += subway.fare;
-		}else {
-			System.out.println("You need more money");
-		}
+		setMoney(subway.confirm(money));
 	}
 }
